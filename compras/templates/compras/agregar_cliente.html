@@ -1,0 +1,21 @@
+{% extends 'compras/index.html' %}
+{% load static %}
+
+{% block titulo %}
+Agregar Cliente
+{% endblock titulo %}
+
+{% block cabecera %}
+Agregar Cliente
+{% endblock cabecera %}
+
+{% block contenido %}
+<h2>Datos del Cliente</h2>
+<form method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_p }}
+    </table>
+    <input type="submit" value="Agregar Cliente">
+</form>
+{% endblock contenido %}

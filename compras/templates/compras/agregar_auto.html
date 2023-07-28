@@ -1,0 +1,21 @@
+{% extends 'compras/index.html' %}
+{% load static %}
+
+{% block titulo %}
+Agregar Auto
+{% endblock titulo %}
+
+{% block cabecera %}
+Agregar Auto
+{% endblock cabecera %}
+
+{% block contenido %}
+<form method="post">
+    <h2>Datos del Auto</h2>
+    {% csrf_token %}
+    <table>
+    {{ form.as_p }}
+    </table>
+    <button type="submit">Agregar Auto</button>
+</form>
+{% endblock contenido %}

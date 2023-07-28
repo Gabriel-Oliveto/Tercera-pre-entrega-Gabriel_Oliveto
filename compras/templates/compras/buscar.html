@@ -1,0 +1,42 @@
+{% extends 'compras/index.html' %}
+{% load static %}
+
+{% block titulo %}
+Busqueda Auto
+{% endblock titulo %}
+
+{% block cabecera %}
+Buscar Auto
+{% endblock cabecera %}
+
+{% block contenido %}
+<form method="post">
+    <h2>Listado de Autos</h2>
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button type="submit">Buscar</button>
+</form>
+
+{% if resultados %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for auto in resultados %}
+        <tr>
+            <td>{{ auto.marca }}</td>
+            <td>{{ auto.modelo }}</td>
+            <td>${{ auto.precio }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No se encontraron resultados.</p>
+{% endif %}
+{% endblock contenido %}

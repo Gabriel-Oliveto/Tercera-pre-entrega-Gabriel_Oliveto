@@ -1,0 +1,21 @@
+{% extends 'compras/index.html' %}
+{% load static %}
+
+{% block titulo %}
+Modificar Cliente
+{% endblock titulo %}
+
+{% block cabecera %}
+Modificar Cliente
+{% endblock cabecera %}
+
+{% block contenido %}
+<h2>Cliente</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_p }}
+    </table>
+    <button type="submit">Modificar Cliente</button>
+</form>
+{% endblock contenido %}
